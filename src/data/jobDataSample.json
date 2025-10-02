@@ -1,0 +1,57 @@
+[
+    {
+        "id": 0,
+        "name": "Andromeda",
+        "position": "Principal Software Engineer",
+        "website": "http://www.ianridpath.com/constellations1.html",
+        "date": "2025-01-01",
+        "updated": "",
+        "status": "Applied",
+        "notes": "Initial application",
+        "details": "<p><strong>The Role</strong></p><p>We are seeking a skilled Software Developer to join our dynamic team. In this role, you will be responsible for designing, coding, testing, and maintaining software applications. You will collaborate with cross-functional teams to define, design, and ship new features, ensuring high performance and responsiveness of applications.</p><p><strong>Key Responsibilities</strong></p><ul>    <li>Develop and maintain software applications according to specifications.</li>    <li>Write clean, scalable, and efficient code.</li>    <li>Conduct code reviews and provide constructive feedback.</li>    <li>Troubleshoot and debug applications to optimize performance.</li>    <li>Collaborate with other developers, designers, and product managers to deliver high-quality software solutions.</li>    <li>Stay updated with emerging technologies and industry trends.</li></ul<p><strong>Qualifications</strong></p><ul>    <li>Bachelor’s degree in Computer Science, Software Engineering, or a related field.</li>    <li>Proven experience as a Software Developer or similar role</li>    <li>Proficiency in programming languages such as Java, C#, Python, or JavaScript.</li>    <li>Familiarity with web development frameworks and technologies.</li>    <li>Strong problem-solving skills and attention to detail.</li>    <li>Excellent communication and teamwork abilities.</li></ul><p>Join us to contribute to innovative projects and enhance your skills in a collaborative environment!</p>"
+    },
+    {
+        "id": 1,
+        "name": "Cassiopea",
+        "position": "Staff Software Engineer",
+        "website": "http://www.ianridpath.com/constellations1.html",
+        "date": "2025-02-01",
+        "updated": "2025-02-02",
+        "status": "Interview",
+        "notes": "Second application",
+        "details": "<p><strong>The Role</strong></p><p>We are seeking a skilled Software Developer to join our dynamic team. In this role, you will be responsible for designing, coding, testing, and maintaining software applications. You will collaborate with cross-functional teams to define, design, and ship new features, ensuring high performance and responsiveness of applications.</p><p><strong>Key Responsibilities</strong></p><ul>    <li>Develop and maintain software applications according to specifications.</li>    <li>Write clean, scalable, and efficient code.</li>    <li>Conduct code reviews and provide constructive feedback.</li>    <li>Troubleshoot and debug applications to optimize performance.</li>    <li>Collaborate with other developers, designers, and product managers to deliver high-quality software solutions.</li>    <li>Stay updated with emerging technologies and industry trends.</li></ul<p><strong>Qualifications</strong></p><ul>    <li>Bachelor’s degree in Computer Science, Software Engineering, or a related field.</li>    <li>Proven experience as a Software Developer or similar role</li>    <li>Proficiency in programming languages such as Java, C#, Python, or JavaScript.</li>    <li>Familiarity with web development frameworks and technologies.</li>    <li>Strong problem-solving skills and attention to detail.</li>    <li>Excellent communication and teamwork abilities.</li></ul><p>Join us to contribute to innovative projects and enhance your skills in a collaborative environment!</p>"
+    },
+    {
+        "id": 2,
+        "name": "Centaurus",
+        "position": "Senior Software Engineer",
+        "website": "http://www.ianridpath.com/constellations1.html",
+        "date": "2025-03-01",
+        "updated": "2025-03-02",
+        "status": "Rejected",
+        "notes": "Third application",
+        "details": "<p><strong>The Role</strong></p><p>We are seeking a skilled Software Developer to join our dynamic team. In this role, you will be responsible for designing, coding, testing, and maintaining software applications. You will collaborate with cross-functional teams to define, design, and ship new features, ensuring high performance and responsiveness of applications.</p><p><strong>Key Responsibilities</strong></p><ul>    <li>Develop and maintain software applications according to specifications.</li>    <li>Write clean, scalable, and efficient code.</li>    <li>Conduct code reviews and provide constructive feedback.</li>    <li>Troubleshoot and debug applications to optimize performance.</li>    <li>Collaborate with other developers, designers, and product managers to deliver high-quality software solutions.</li>    <li>Stay updated with emerging technologies and industry trends.</li></ul<p><strong>Qualifications</strong></p><ul>    <li>Bachelor’s degree in Computer Science, Software Engineering, or a related field.</li>    <li>Proven experience as a Software Developer or similar role</li>    <li>Proficiency in programming languages such as Java, C#, Python, or JavaScript.</li>    <li>Familiarity with web development frameworks and technologies.</li>    <li>Strong problem-solving skills and attention to detail.</li>    <li>Excellent communication and teamwork abilities.</li></ul><p>Join us to contribute to innovative projects and enhance your skills in a collaborative environment!</p>"
+    },
+    {
+        "id": 3,
+        "name": "Draco",
+        "position": "Software Developer",
+        "website": "http://www.ianridpath.com/constellations1.html",
+        "date": "2025-03-01",
+        "updated": "2025-04-30",
+        "status": "Offer",
+        "notes": "A test application",
+        "details": "<p><strong>The Role</strong></p><p>We are seeking a skilled Software Developer to join our dynamic team. In this role, you will be responsible for designing, coding, testing, and maintaining software applications. You will collaborate with cross-functional teams to define, design, and ship new features, ensuring high performance and responsiveness of applications.</p><p><strong>Key Responsibilities</strong></p><ul>    <li>Develop and maintain software applications according to specifications.</li>    <li>Write clean, scalable, and efficient code.</li>    <li>Conduct code reviews and provide constructive feedback.</li>    <li>Troubleshoot and debug applications to optimize performance.</li>    <li>Collaborate with other developers, designers, and product managers to deliver high-quality software solutions.</li>    <li>Stay updated with emerging technologies and industry trends.</li></ul<p><strong>Qualifications</strong></p><ul>    <li>Bachelor’s degree in Computer Science, Software Engineering, or a related field.</li>    <li>Proven experience as a Software Developer or similar role</li>    <li>Proficiency in programming languages such as Java, C#, Python, or JavaScript.</li>    <li>Familiarity with web development frameworks and technologies.</li>    <li>Strong problem-solving skills and attention to detail.</li>    <li>Excellent communication and teamwork abilities.</li></ul><p>Join us to contribute to innovative projects and enhance your skills in a collaborative environment!</p>"
+    },
+    {
+        "id": 4,
+        "name": "Fornax",
+        "position": "Software Engineer",
+        "website": "http://www.ianridpath.com/constellations1.html",
+        "date": "2025-05-01",
+        "updated": "",
+        "status": "Applied",
+        "notes": "Fifth application",
+        "details": "<p><strong>The Role</strong></p><p>We are seeking a skilled Software Developer to join our dynamic team. In this role, you will be responsible for designing, coding, testing, and maintaining software applications. You will collaborate with cross-functional teams to define, design, and ship new features, ensuring high performance and responsiveness of applications.</p><p><strong>Key Responsibilities</strong></p><ul>    <li>Develop and maintain software applications according to specifications.</li>    <li>Write clean, scalable, and efficient code.</li>    <li>Conduct code reviews and provide constructive feedback.</li>    <li>Troubleshoot and debug applications to optimize performance.</li>    <li>Collaborate with other developers, designers, and product managers to deliver high-quality software solutions.</li>    <li>Stay updated with emerging technologies and industry trends.</li></ul><p><strong>Qualifications</strong></p><ul>    <li>Bachelor’s degree in Computer Science, Software Engineering, or a related field.</li>    <li>Proven experience as a Software Developer or similar role</li>    <li>Proficiency in programming languages such as Java, C#, Python, or JavaScript.</li>    <li>Familiarity with web development frameworks and technologies.</li>    <li>Strong problem-solving skills and attention to detail.</li>    <li>Excellent communication and teamwork abilities.</li></ul><p>Join us to contribute to innovative projects and enhance your skills in a collaborative environment!</p>"
+    }
+]

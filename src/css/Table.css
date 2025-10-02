@@ -1,0 +1,45 @@
+.app-table {
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+.app-table th, .app-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.app-table th {
+  font-weight: bold;
+}
+
+.app-table-sorted-desc::after {
+  content: "▼";
+}
+
+.app-table-sorted-asc::after {
+  content: "▲";
+}
+.app-table-unsorted::after {
+  content: "⇅";
+}
+
+.app-table-sorted-desc, .app-table-sorted-asc, .app-table-unsorted {
+  cursor: pointer;
+  user-select: none;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.status-offer {
+  background-color: rgba(43, 235, 21, 0.498);
+}
+
+.status-rejected {
+  background-color: rgba(236, 121, 38, 0.498);
+}
+.selected {
+  border: rgb(11, 119, 155) 2px solid;
+}
