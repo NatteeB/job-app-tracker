@@ -33,7 +33,7 @@ function App() {
         <Table data={data} selectedId={selectedId} setSelectedId={setSelectedId} />
       </div>
       {/* <button onClick={() => saveChanges(data)}>Save</button> */}
-      <div className="app-panel data-panel">
+      <div className="app-panel details-panel">
         <Details data={data} selectedId={selectedId} />
       </div>
     </>
