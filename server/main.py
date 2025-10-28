@@ -14,7 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DATA_FILE = Path(__file__).parent / "../data/jobDataSample.json"
+DATA_FILE = Path(__file__).parent / "./data/jobDataSample.json"
 
 def read_data():
     with open(DATA_FILE, "r", encoding="utf-8") as f:

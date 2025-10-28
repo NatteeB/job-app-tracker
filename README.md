@@ -19,11 +19,12 @@ The server side is written with Python + FastAPI.
 
 ## Setup and run frontend
 
+- Run `cd client`
 - Run `npm install` to setup dependencies
 - Run `npm run dev` to start the project on http://localhost:5173/
 
 # Data file
-The data file for the project is in `/data/jobDataSample.json`
+The data file for the project is in `/server/data/jobDataSample.json`
 The data are expected to be in JSON format and the details property is assumed to contain HTML content. If you modify this file, make sure to add trusted and sanitized content into the fileds.
 You can also point to the data using your own file in App.tsx
 ```
@@ -35,7 +36,7 @@ This project page contains a sortable table section with a list of job applicati
 Click on an icon in the table header to sort the rows. 
 Click on a row to see job details in the Details section.
 
-![JobApplicationTracker](<./public/appScreenShot.png> 'Application screen shot')
+![JobApplicationTracker](<./appScreenShot.png> 'Application screen shot')
 
 # Future development
 - Add ability to add a row
