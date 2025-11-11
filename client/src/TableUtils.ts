@@ -2,6 +2,13 @@
 export type JobItemType = { id: number; name: string; position: string; website: string; date: string; updated: string; status: string; notes: string, details: string };
 export type ColumnSortType = { columnId: keyof JobItemType; direction: 'ascending' | 'descending' } | null;
 
+const DisplayStatus = {
+  Applied: 1 << 0,
+  Interview: 1 << 1,
+  Offer: 1 << 2,
+  Rejected: 1 << 3,
+};
+
 /**
  * Sorts the job application json data based on the provided sort configuration (See ColumnSortType).
  * @param data - The job application data to sort.
@@ -53,4 +60,22 @@ const getRowClass = (status: string, selected?: boolean) => {
     }
     return className;
 }
-export { sortData, getSortIcon, getRowClass };
+
+const filterDataByStatus = (data: JobItemType[], statusFilter: number): JobItemType[] => {
+    return data.filter((item) => {
+        const itemStatus = item.status.toLowerCase();
+        switch (itemStatus) {
+            case 'applied':
+                return (statusFilter & DisplayStatus.Applied) !== 0;
+            case 'interview':
+                return (statusFilter & DisplayStatus.Interview) !== 0;
+            case 'offer':
+                return (statusFilter & DisplayStatus.Offer) !== 0;
+            case 'rejected':
+                return (statusFilter & DisplayStatus.Rejected) !== 0;
+            default:
+                return false;
+        }
+    });
+}
+export { sortData, getSortIcon, getRowClass, DisplayStatus, filterDataByStatus };

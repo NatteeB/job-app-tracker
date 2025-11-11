@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import Table from './Table';
 import Details from './Details';
-import './css/App.css';
 import { useAppDispatch, useAppSelector } from './hooks';
 import { fetchData } from './dataSlice';
+import './css/App.css';
 
 function App() {
   const dispatch = useAppDispatch();
