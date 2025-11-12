@@ -4,11 +4,18 @@
   overflow-y: auto;
   border-collapse: collapse;
   margin-top: 2rem;
+  table-layout: fixed;
 }
 .app-table th, .app-table td {
   border: 1px solid #ccc;
   padding: 0.5rem;
   text-align: left;
+  word-wrap: break-word;
+}
+
+.app-table th:first-child, .app-table td:first-child {
+    width: 70px;
+    text-align: center;
 }
 
 .app-table th {
@@ -17,19 +24,22 @@
 
 .app-table-sorted-desc::after {
   content: "▼";
+  margin-left: .5rem;
 }
 
 .app-table-sorted-asc::after {
   content: "▲";
+  margin-left: .5rem;
 }
 .app-table-unsorted::after {
   content: "⇅";
+  margin-left: .5rem;
 }
 
 .app-table-sorted-desc, .app-table-sorted-asc, .app-table-unsorted {
   cursor: pointer;
   user-select: none;
-  padding-left: 1rem;
+  padding-right: 1rem;
   position: relative;
 }
 
@@ -42,4 +52,8 @@
 }
 .selected {
   border: rgb(11, 119, 155) 2px solid;
+}
+.strong-label {
+  font-weight: bold;
+  margin-right: 0.5rem;
 }

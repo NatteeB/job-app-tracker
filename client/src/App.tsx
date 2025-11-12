@@ -19,9 +19,7 @@ function App() {
 
   return (
     <>
-      <div className="app-panel">
-        <h3>Applications List</h3>
-      </div>
+      <h2>Job Applications</h2>
 
       <div className="app-panel data-panel">
         <Table data={data} selectedId={selectedId} setSelectedId={setSelectedId} />

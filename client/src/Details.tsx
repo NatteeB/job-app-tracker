@@ -14,7 +14,12 @@ const Details = ({ selectedId = -1, data }: DetailsProps) => {
             {
                 selectedItem ? (
                     <>
-                        <p><strong>Company:</strong> {selectedItem.name}</p>
+                        <h3>{selectedItem.name}</h3>
+                        <hr/>
+                        <h4>Notes:</h4>
+                        <div>{selectedItem.notes}</div>
+                        <hr/>
+                        <h4>Details:</h4>
                         <div dangerouslySetInnerHTML={{ __html: selectedItem.details }} />
                     </>
                 ) : (

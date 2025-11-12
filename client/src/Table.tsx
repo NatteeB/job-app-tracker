@@ -11,8 +11,7 @@ const columns = [
     { label: "Website", columnId: "website" },
     { label: "Date Applied", columnId: "date" },
     { label: "Date Updated", columnId: "updated" },
-    { label: "Status", columnId: "status" },
-    { label: "Notes", columnId: "notes" }
+    { label: "Status", columnId: "status" }
 ];
 
 type TableProps = { data: JobItemType[]; selectedId?: number; setSelectedId: (id: number) => void };
@@ -21,7 +20,7 @@ type TableProps = { data: JobItemType[]; selectedId?: number; setSelectedId: (id
 const Table = ({ data, selectedId, setSelectedId }: TableProps) => {
     const [sortConfig, setSortConfig] = useState<ColumnSortType>(null);
     const [statusFilter, setDisplayStatusFilter] = useState(
-        ds.Applied | ds.Interview | ds.Offer | ds.Rejected
+        ds.Applied | ds.Interview | ds.Offer 
     );
 
     const sortHandler = (column: keyof JobItemType) => {
@@ -45,14 +44,14 @@ const Table = ({ data, selectedId, setSelectedId }: TableProps) => {
         <>
             <div className="app-panel">
                 <div>
-                    <span><strong>Filter By Status:</strong></span>
+                    <span className="strong-label">Filter By Status:</span>
                     <Checkbox label="Applied" checked={!!(statusFilter & ds.Applied)} onChange={checkboxChangeHandler} />
                     <Checkbox label="Interview" checked={!!(statusFilter & ds.Interview)} onChange={checkboxChangeHandler} />
                     <Checkbox label="Offer" checked={!!(statusFilter & ds.Offer)} onChange={checkboxChangeHandler} />
                     <Checkbox label="Rejected" checked={!!(statusFilter & ds.Rejected)} onChange={checkboxChangeHandler} />
                 </div>
                 <div>
-                    <span><strong>Displayed applications:</strong></span>
+                    <span className="strong-label">Displayed applications:</span>
                     <span>{filteredData.length}</span>
                 </div>
             </div>
