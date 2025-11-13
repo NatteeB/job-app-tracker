@@ -6,11 +6,11 @@ import Checkbox from './Checkbox';
 // A list of columns to display in the table
 const columns = [
     { label: "ID", columnId: "id" },
-    { label: "Name", columnId: "name" },
-    { label: "Position", columnId: "position" },
+    { label: "Company", columnId: "company" },
+    { label: "Title", columnId: "title" },
     { label: "Website", columnId: "website" },
-    { label: "Date Applied", columnId: "date" },
-    { label: "Date Updated", columnId: "updated" },
+    { label: "Date Applied", columnId: "applied_date" },
+    { label: "Date Updated", columnId: "updated_date" },
     { label: "Status", columnId: "status" }
 ];
 

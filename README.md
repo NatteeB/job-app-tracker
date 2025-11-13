@@ -5,16 +5,23 @@ Another goal is to have fun writing some code that does something usefull.
 
 The project UI is written with React + TypeScript + Vite.
 
-The server side is written with Python + FastAPI.
+The server side is written with Python + FastAPI or alternaively there is a Node.js version that uses Express and CORS packages.
 
 # Setup
 - Clone the project
 
-## Setup and run server
+## Setup and run Python server
 
 - Create python virtual environment using venv or conda (I'm using conda in this sample) and activate it.
 - Setup project dependencies using `pip install fastapi uvicorn`
 - Run `uvicorn server.main:app --reload --port 8000` to start server on http://localhost:8000/
+- Use `http://localhost:8000/data` to test the server.
+
+## Setup and run Node.js server (alternatively)
+
+- Run `cd server-nodejs`
+- Run `npm install` to setup dependencies
+- Run `node server.js` to start server on http://localhost:8000/
 - Use `http://localhost:8000/data` to test the server.
 
 ## Setup and run frontend
@@ -26,9 +33,9 @@ The server side is written with Python + FastAPI.
 # Data file
 The data file for the project is in `/server/data/jobDataSample.json`
 The data are expected to be in JSON format and the details property is assumed to contain HTML content. If you modify this file, make sure to add trusted and sanitized content into the fileds.
-You can also point to the data using your own file in App.tsx
+You can also point to the data using your own file in `server/main.py`
 ```
-import data from './data/jobDataSample.json';
+DATA_FILE = Path(__file__).parent / "./data/jobDataSample.json"
 ```
 
 # App Experience

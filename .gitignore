@@ -26,3 +26,5 @@ dist-ssr
 
 __pycache__/
 server/data/realData.json
+server-nodejs/data/realData.json
+server-nodejs/data/realData.db
