@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-import json
-from pathlib import Path
+import sqlite3
+from typing import Dict, Any
 
 app = FastAPI()
 
@@ -14,17 +14,66 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DATA_FILE = Path(__file__).parent / "./data/jobDataSample.json"
+# ---------------------------
+# Database helpers
+# ---------------------------
+
+def get_db_connection():
+    conn = sqlite3.connect("data/realData.db")
+    conn.row_factory = sqlite3.Row  # rows behave like dicts
+    return conn
 
 def read_data():
-    with open(DATA_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+    conn = get_db_connection()
+    rows = conn.execute("SELECT * FROM jobs").fetchall()
+    conn.close()
+    return [dict(row) for row in rows]   # FastAPI auto-converts to JSON
+
+def write_data(data: Dict[str, Any]):
+    """
+    Example logic:
+    - If `id` exists, update the row.
+    - Otherwise insert a new one.
+
+    Adjust fields to match your table schema.
+    """
+
+    conn = get_db_connection()
+
+    # Example expected fields in your job object
+    job_id = data.get("id")
+    title = data.get("title")
+    company = data.get("company")
+    applied = data.get("applied")
+
+    if not title:
+        raise HTTPException(400, detail="Missing 'title' field")
+
+    if job_id:  # update existing
+        conn.execute(
+            """
+            UPDATE jobs
+            SET title = ?, company = ?, applied = ?
+            WHERE id = ?
+            """,
+            (title, company, applied, job_id),
+        )
+    else:  # insert new
+        conn.execute(
+            """
+            INSERT INTO jobs (title, company, applied)
+            VALUES (?, ?, ?)
+            """,
+            (title, company, applied),
+        )
+
+    conn.commit()
+    conn.close()
 
 
-def write_data(data):
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2)
-
+# ---------------------------
+# Routes
+# ---------------------------
 
 @app.get("/data")
 def get_data():
