@@ -1,6 +1,7 @@
 import './css/Table.css'
 import { useState, useMemo } from 'react';
-import { type JobItemType, type ColumnSortType, sortData, getSortIcon, getRowClass, filterDataByStatus, DisplayStatus as ds } from './TableUtils';
+import { sortData, getSortIcon, getRowClass, filterDataByStatus, DisplayStatus as ds } from './TableUtils';
+import type { JobItemType, ColumnSortType} from './types';
 import Checkbox from './Checkbox';
 
 // A list of columns to display in the table

@@ -12,16 +12,16 @@ function App() {
   const [selectedId, setSelectedId] = useState(-1);
   const [isOpen, setIsOpen] = useState(false);
 
+  // Fetch data on component mount
   useEffect(() => {
     dispatch(fetchData());
   }, []);
+
+  // Disable body scroll when dialog is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
   }, [isOpen]);
+
 
   if (status === 'loading') return <p>Loading data...</p>;
   if (status === 'failed') return <p>Error: {error}</p>;
@@ -34,7 +34,6 @@ function App() {
       <div className="app-panel data-panel">
         <Table data={data} selectedId={selectedId} setSelectedId={setSelectedId} />
       </div>
-      {/* <button onClick={() => saveChanges(data)}>Save</button> */}
       <div className="app-panel details-panel">
         <Details data={data} selectedId={selectedId} />
       </div>

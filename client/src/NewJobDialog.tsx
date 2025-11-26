@@ -1,23 +1,25 @@
 import { useState } from "react";
+import { useAppDispatch } from './hooks';
+import { createJob } from './dataSlice';
 
 type NewJobDialogProps = {
     onClose: () => void;
 };
 
 const NewJobDialog = ({ onClose }: NewJobDialogProps) => {
+    const dispatch = useAppDispatch();
     const [title, setTitle] = useState("");
     const [company, setCompany] = useState("");
     const [status, setStatus] = useState("applied");
     const [website, setWebsite] = useState("");
     const [notes, setNotes] = useState("");
+    const [details, setDetails] = useState("");
     const [description, setDescription] = useState("");
 
     const today = new Date().toISOString().split("T")[0];
     const [appliedDate, setAppliedDate] = useState(today);
 
-    // -----------------------------
-    // 🔥 CALL YOUR NODE BACKEND API
-    // -----------------------------
+    // AI Job Description Parser
     const handleParseDescription = async () => {
         if (!description.trim()) return;
 
@@ -31,23 +33,38 @@ const NewJobDialog = ({ onClose }: NewJobDialogProps) => {
             const data = await response.json();
 
             // Expected from backend:
-            // { "company", "position", "description_summary", "required_skills", ... }
+            // { "company", "position", "description_summary", "required_skills", "description_details" }
             if (data.company) setCompany(data.company);
             if (data.position) setTitle(data.position);
             if (data.description_summary || data.required_skills) {
                 const reqs = `Summary: ${data.description_summary || "N/A"}\n\nRequirements:\n- ${data.required_skills ? data.required_skills.join("\n- ") : "N/A"}`;
                 setNotes(reqs);
+            }
+            if (data.description_details) {
+                setDetails(data.description_details);
             } else {
-                setNotes("Summary not available");
+                setDetails("Details not available");
             }
         } catch (err) {
             console.error("Error parsing description:", err);
         }
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    // Form submission handler
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // TODO: send form data to backend
+        await dispatch(
+            createJob({
+                title,
+                company,
+                status,
+                website,
+                notes,
+                details: description,
+                applied_date: appliedDate,
+                updated_date: appliedDate,
+            })
+        );
         onClose();
     };
 
@@ -73,6 +90,7 @@ const NewJobDialog = ({ onClose }: NewJobDialogProps) => {
                         </button>
                     </div>
 
+                    {/* --- Form Fields for Job Creation --- */}
                     <div className="input-container dialog-item">
                         <label htmlFor="company-field">Company</label>
                         <input
@@ -134,6 +152,16 @@ const NewJobDialog = ({ onClose }: NewJobDialogProps) => {
                             rows={4}
                             value={notes}
                             onChange={(e) => setNotes(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="input-container dialog-item">
+                        <label htmlFor="details-field">Details as HTML</label>
+                        <textarea
+                            id="details-field"
+                            rows={4}
+                            value={details}
+                            onChange={(e) => setDetails(e.target.value)}
                         />
                     </div>
 

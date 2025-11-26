@@ -35,7 +35,7 @@ app.get("/data", (req, res) => {
     res.json(jobs);
 });
 
-app.post("/data", (req, res) => {
+app.post("/createjob", (req, res) => {
     const { company, title, website, status, applied_date, updated_date, notes, details } = req.body;
     const stmt = db.prepare(
         `INSERT INTO jobs (company, title, website, status, applied_date, updated_date, notes, details)
@@ -47,7 +47,6 @@ app.post("/data", (req, res) => {
 
 app.post("/parsejob", async (req, res) => {
     const { description } = req.body;
-    console.log("1. Got description", description);
 
     const jobSchema = {
         name: "job_post_extraction",
@@ -59,21 +58,28 @@ app.post("/parsejob", async (req, res) => {
                 position: { type: "string", description: "Role or title" },
                 required_skills: { type: "array", items: { type: "string" }, nullable: true },
                 nice_to_have: { type: "array", items: { type: "string" }, nullable: true },
-                description_summary: { type: "string", nullable: true },
-                posted_date: {
+                description_details: {
                     type: "string",
                     nullable: true,
-                    description: "As found, any common date format",
+                    description: "Convert the entire job description into HTML format. Wrap the output into html section element."
+                },
+                description_summary: {
+                    type: "string",
+                    nullable: true,
+                    description: "Extract a summary of the job description preserving the original words. Convert the entire output into HTML format. Wrap the output into html section element."
                 }
             },
-            required: ["company", "position", "description_summary"],
+            required: ["company", "position", "description_summary", "description_details"],
         },
     };
 
     const instructions = `
 You are a precise information extraction engine.
 Extract only what the post states explicitly. If a field is unknown, set it to null.
-Do not invent values. Keep arrays concise.
+Populate description_details field by converting entire text into HTML format where the whole content is wrapped into a html section element.
+All sections related to requirements, responsibilities, bonus points or nice-to-have should be included and converted into ul/li elements preserving all original words.
+Perform appropriate formating to make the content readable in HTML.
+Do not invent values. Keep arrays concise. Respond in valid JSON only.
 `;
 
     try {
@@ -100,8 +106,6 @@ Do not invent values. Keep arrays concise.
             ? message.content
             : // sometimes content is an array of parts; join their text
             message.content.map((p) => p.text || "").join("");
-
-            console.log("2. Raw LLM output:", raw); 
         const parsed = JSON.parse(raw);
 
         res.json(parsed);

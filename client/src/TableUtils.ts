@@ -1,6 +1,4 @@
-
-export type JobItemType = { id: number; name: string; position: string; website: string; date: string; updated: string; status: string; notes: string, details: string };
-export type ColumnSortType = { columnId: keyof JobItemType; direction: 'ascending' | 'descending' } | null;
+import type { JobItemType, ColumnSortType } from "./types";
 
 const DisplayStatus = {
   Applied: 1 << 0,
@@ -63,7 +61,7 @@ const getRowClass = (status: string, selected?: boolean) => {
 
 const filterDataByStatus = (data: JobItemType[], statusFilter: number): JobItemType[] => {
     return data.filter((item) => {
-        const itemStatus = item.status.toLowerCase();
+        const itemStatus = item.status?.toLowerCase();
         switch (itemStatus) {
             case 'applied':
                 return (statusFilter & DisplayStatus.Applied) !== 0;
