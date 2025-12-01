@@ -10,7 +10,7 @@ const NewJobDialog = ({ onClose }: NewJobDialogProps) => {
     const dispatch = useAppDispatch();
     const [title, setTitle] = useState("");
     const [company, setCompany] = useState("");
-    const [status, setStatus] = useState("applied");
+    const [status, setStatus] = useState("Applied");
     const [website, setWebsite] = useState("");
     const [notes, setNotes] = useState("");
     const [details, setDetails] = useState("");
@@ -36,10 +36,7 @@ const NewJobDialog = ({ onClose }: NewJobDialogProps) => {
             // { "company", "position", "description_summary", "required_skills", "description_details" }
             if (data.company) setCompany(data.company);
             if (data.position) setTitle(data.position);
-            if (data.description_summary || data.required_skills) {
-                const reqs = `Summary: ${data.description_summary || "N/A"}\n\nRequirements:\n- ${data.required_skills ? data.required_skills.join("\n- ") : "N/A"}`;
-                setNotes(reqs);
-            }
+            if (data.description_summary) setNotes(data.description_summary);
             if (data.description_details) {
                 setDetails(data.description_details);
             } else {
@@ -60,7 +57,7 @@ const NewJobDialog = ({ onClose }: NewJobDialogProps) => {
                 status,
                 website,
                 notes,
-                details: description,
+                details,
                 applied_date: appliedDate,
                 updated_date: appliedDate,
             })

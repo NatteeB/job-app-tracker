@@ -1,5 +1,5 @@
 
-import { type JobItemType } from './TableUtils';
+import { type JobItemType } from './types';
 
 type DetailsProps = {
     selectedId?: number;
@@ -14,10 +14,10 @@ const Details = ({ selectedId = -1, data }: DetailsProps) => {
             {
                 selectedItem ? (
                     <>
-                        <h3>{selectedItem.name}</h3>
+                        <h3>{selectedItem.company}</h3>
                         <hr/>
                         <h4>Notes:</h4>
-                        <div>{selectedItem.notes}</div>
+                        <div dangerouslySetInnerHTML={{ __html: selectedItem.notes }} />
                         <hr/>
                         <h4>Details:</h4>
                         <div dangerouslySetInnerHTML={{ __html: selectedItem.details }} />

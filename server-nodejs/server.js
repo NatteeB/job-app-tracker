@@ -9,6 +9,7 @@ import OpenAI from "openai";
 
 const app = express();
 const PORT = 8000;
+const DBFILE = "data/sampleData.db";
 
 // Enable JSON parsing for POST requests
 app.use(express.json());
@@ -24,7 +25,7 @@ app.use(
 );
 
 // Path to the DB file
-const db = new Database("data/sampleData.db");
+const db = new Database(DBFILE);
 const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
@@ -37,6 +38,7 @@ app.get("/data", (req, res) => {
 
 app.post("/createjob", (req, res) => {
     const { company, title, website, status, applied_date, updated_date, notes, details } = req.body;
+    console.log("Received new job:", company, notes, details);
     const stmt = db.prepare(
         `INSERT INTO jobs (company, title, website, status, applied_date, updated_date, notes, details)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
