@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 import sqlite3
 from typing import Dict, Any
 
+DBFILE = "data/sampleData.db"
+
 app = FastAPI()
 
 # Allow requests from Vite frontend
@@ -19,15 +21,15 @@ app.add_middleware(
 # ---------------------------
 
 def get_db_connection():
-    conn = sqlite3.connect("data/realData.db")
-    conn.row_factory = sqlite3.Row  # rows behave like dicts
+    conn = sqlite3.connect(DBFILE)
+    conn.row_factory = sqlite3.Row 
     return conn
 
 def read_data():
     conn = get_db_connection()
     rows = conn.execute("SELECT * FROM jobs").fetchall()
     conn.close()
-    return [dict(row) for row in rows]   # FastAPI auto-converts to JSON
+    return [dict(row) for row in rows]
 
 def write_data(data: Dict[str, Any]):
     """
